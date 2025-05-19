@@ -1,0 +1,58 @@
+Copy and paste the following SQL code in MYSQL
+
+create database ecommerce;
+use ecommerce;
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL
+);
+INSERT INTO users (username, email, password_hash) 
+VALUES ('admin', 'admin@gmail.com', '$2b$12$YYq8WruMkC/mlN4ENz8WVuUpLNYtZgmyiZTp5JvUSXCw77zVD3FP.');
+CREATE TABLE cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_session VARCHAR(255) NOT NULL,  
+    sku VARCHAR(50) NOT NULL,  
+    product_name VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image_url VARCHAR(500) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,  
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sku) REFERENCES products(sku) ON DELETE CASCADE,
+    user_id INT NULL
+);
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sku VARCHAR(50) UNIQUE NOT NULL,  
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image_url VARCHAR(500) NOT NULL
+);
+INSERT INTO products (sku,name ,description, price, image_url) VALUES 
+('0001','Loose-fit Sweatshirt', 'A cozy and stylish oversized sweatshirt for a relaxed look.', 499, 't1.png'),
+('0002','Trumpet-Sleeved Ribbed Top', 'A trendy ribbed top with flared trumpet sleeves.', 699, 't2.png'),
+('0003','Wide Leg Pants With Bows', 'Elegant wide-leg pants featuring decorative bows at the ankles.', 1399, 't3a.png'),
+('0004','Fringed Wool Blend Sweater Vest', 'A warm and stylish wool blend sweater vest with fringed details.', 1399, 't4.png'),
+('0005','Mini Skirt', 'A classic mini skirt perfect for casual and chic outfits.', 1299, 't5.png'),
+('0006','Napped Jacket', 'A soft and textured napped jacket that adds sophistication to any look.', 1299, 't6.png'),
+('0007','Plisse Dress', 'A flowy and elegant plisse dress for a refined look.', 1999, 't7.png'),
+('0008','Tie Belt Viscose Shirt Dress', 'A comfortable and stylish shirt dress with a tie belt.', 1999, 't8.png'),
+('0009','Sweatshirt', 'A classic and comfy sweatshirt suitable for any casual outfit.', 499, 'm1.png'),
+('0010','Loose-Fit Zip through Hoody', 'A zip-through hoodie designed for ultimate comfort and style.', 1499, 'm2.png'),
+('0011','Faux-Suede Jacket', 'A sleek and stylish faux-suede jacket for a sophisticated touch.', 1499, 'm3.png'),
+('0012','Striped T-Shirt', 'A soft cotton t-shirt with a stylish striped pattern.', 700, 'm4.png'),
+('0013','Relaxed Fit Cargos', 'Comfortable and stylish relaxed fit cargo pants.', 1299, 'm5.png'),
+('0014','Cargo Pocket Denim Trousers', 'Denim trousers with functional cargo pockets for a rugged look.', 1399, 'm6.png'),
+('0015','Leather Jacket', 'A timeless leather jacket for a bold and edgy style.', 1999, 'm7.png'),
+('0016','Denim Jacket', 'A versatile denim jacket perfect for layering.', 1700, 'm8.png');
+
+select * from products;
+select * from cart; 
+select * from users;
+
+SET SQL_SAFE_UPDATES = 0;
+
+
