@@ -1,0 +1,207 @@
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+ padding: 0;
+ background-color: white;
+}
+@keyframes textColor {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
+.animated-text {
+
+  font-size: 2rem;
+font-weight: bold;
+animation: textColor 2s infinite;
+}
+
+  .heading {
+     position:relative;
+     top:50px;
+     text-align: center;
+     font-size: 60px;
+     font-family:'Bodoni Moda';
+     color: black; background: linear-gradient(90deg, black, brown, black);
+     background-size: 200% 100%;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     animation: shimmer 2s infinite linear;
+     
+ }
+ 
+ @keyframes shimmer {
+     0% { background-position: -100% 0; }
+     100% { background-position: 100% 0; }
+ }
+  
+
+ .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: beige;
+ 
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #4a4a4a;
+  margin: 0 15px;
+  font-size: 18px;
+  padding: 10px 15px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+  background-color: #4a4a4a;
+  color: #f8f5f0;
+  transform: scale(1.05);
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.navbar .right-menu {
+  display: flex;
+  align-items: center;
+}
+
+  .container {
+    display: flex;
+    position: relative;
+    top:0;
+     /* Increase height to enable scrolling */
+
+  }
+
+  .left-section
+  {
+    flex: 1;
+    position: sticky;
+
+  }
+  .right-section {
+    flex: 1;
+  }
+
+  .left-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position:static;
+    display:flex;
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/048/987/053/non_2x/fashionable-male-model-in-charcoal-black-suit-trendy-portrait-with-stylish-lifestyle-background-perfect-for-professional-fashion-features-free-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+  }
+
+  .right-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+    z-index: 1;
+  }
+  
+  .right-section .content {
+    color: #f8f5f0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    
+  }
+
+  .right-section .content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+    
+  }
+
+  .right-section .content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+    
+  }
+
+  .right-section .content a {
+    text-decoration: none;
+    color: #f8f5f0;
+    font-size: 18px;
+    border: 2px solid #f8f5f0;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+    
+  }
+  
+  .right-section .content a:hover {
+    background-color: #f8f5f0;
+    color: #5a7d7c;
+  }
+
+  .footer {
+    background-color: #f4f0eb;
+    text-align: center;
+    padding: 50px 0;
+    position:absolute;
+    top:3100px;
+    left:0px;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:100px;
+    width:100vw;
+
+    
+}
+.footer-column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column li {
+    margin: 5px 0;
+}
+.footer-column a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 16px;
+}
+.footer-column a:hover {
+    text-decoration: underline;
+}
+.footer-bottom {
+    margin-top: 30px;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+.footer-bottom a {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+  

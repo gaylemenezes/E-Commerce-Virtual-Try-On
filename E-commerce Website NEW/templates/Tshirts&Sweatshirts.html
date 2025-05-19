@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title>
+    Day. DREAM
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Nextpage.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/section2.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/section3.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,639;1,14..32,639&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="left-menu">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('women') }}">Women</a>
+      <a href="{{ url_for('men') }}">Men</a>
+    </div>
+    <div class="logo">
+      Day. DREAM
+    </div>
+    <div class="right-menu">
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('cart') }}" id="navbarCart" onclick="openCart()">
+        <i class="fas fa-shopping-cart"></i> Cart <span id="cart-count"></span>
+    </a>
+    </div>
+  </div>
+<div class="common">
+  <div class="sidebar">
+   <h2>
+    Browse by
+   </h2>
+   <a href="{{ url_for('men') }}">
+    All Products
+   </a>
+   <a href="{{ url_for('sweatshirts') }}">
+    Tshirts and Sweatshirts
+   </a>
+   <a href="{{ url_for('jackets') }}">
+    Jacket
+   </a>
+   <a href="{{ url_for('hoodies') }}">
+    Hoodies
+   </a>
+   <a href="{{ url_for('pants') }}">
+    Trousers
+   </a>
+   <a href="{{ url_for('jackets') }}">
+    On Sale
+   </a>
+   <div class="filter-section">
+    <h3>
+     Check out our wide Collection!
+    </h3>
+   </div>
+  </div>
+<div class="content">
+   <h1>
+    "Discover Your Style: Explore a Wide Range of Clothing for Every Occasion!"
+</h1>
+<p>
+  "Welcome to our Clothing Collection! This is your one-stop destination for trendy, comfortable, and versatile outfits. Whether you're dressing up for a special occasion, refreshing your everyday wardrobe, or looking for seasonal must-haves, we've got you covered. Browse through our curated selection and find your perfect fit today!"</p>
+  <br>
+</p>
+   <div class="sort-by">
+    Sort by: Recommended
+    <i class="fas fa-chevron-down">
+    </i>
+   </div>
+   <div class="product-images">
+   <div class="image-container1">
+    <a href="{{ url_for('product') }}?name=Sweatshirt&sku=0009&price=499&desc=Stay%20cozy%20and%20stylish%20with%20this%20soft%20sweatshirt.&image={{ url_for('static', filename='images/m1.png') }}">
+      <img class="default-image" src="{{ url_for('static', filename='images/m1a.png') }}" alt="Sweatshirt">
+      <img class="hover-image" src="{{ url_for('static', filename='images/m1.png') }}" alt="Sweatshirt"></a>
+  </div>
+   <div class="image-container2">
+    <a href="{{ url_for('product') }}?name=Striped%20Tshirt%20&sku=0012&price=700&desc=A%20soft%20cotton%20t-shirt%20with%20a%20stylish%20striped%20pattern.&image={{ url_for('static', filename='images/m4.png') }}">
+      <img class="default-image" src="{{ url_for('static', filename='images/m4a.png') }}" alt=" tshirt">
+      <img class="hover-image2" src="{{ url_for('static', filename='images/m4.png') }}" alt="tshirt"></a>
+   </div>
+   <div class="name1">
+    <a href="#"><p><b>Loose-fit Sweatshirt</b></p></a>
+    <a href="#"><p><b>Striped T-shirt</b></p></a>
+   </div>
+   <div class="price1">
+    <p><b>Rs.499</b></p>
+    <p><b>Rs.700</b></p>
+   </div>
+</div>
+</div>
+</div>
+<div class="footer">
+  <div class="footer-columns">
+      <ul class="footer-column">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+      </ul>
+      <ul class="footer-column">
+          <li><a href="#">Lookbook</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="footer-column">
+          <li><a href="#">Store Policy</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+      </ul>
+      <ul class="footer-column">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+      </ul>
+  </div>
+  <div class="footer-bottom">
+      ©2035 by Day. DREAM. Powered and secured by <a href="#">Wix</a>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }} " ></script>
+</body>
+</html>

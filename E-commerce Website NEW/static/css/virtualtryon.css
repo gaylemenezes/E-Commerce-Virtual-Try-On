@@ -1,0 +1,84 @@
+.cam {
+    text-align: center;
+}
+.outfit-selection {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.outfit {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+.outfit:hover {
+    transform: scale(1.1);
+}
+canvas {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    max-width: 100%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: beige;
+   
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #4a4a4a;
+    margin: 0 15px;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .navbar a:hover {
+    background-color: #4a4a4a;
+    color: #f8f5f0;
+    transform: scale(1.05);
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  
+  .navbar .right-menu {
+    display: flex;
+    align-items: center;
+  }
+  body {
+    margin: 0;
+    
+   padding: 0;
+   background-color: white;
+  }
+
+  .heading {
+    position:relative;
+    top:50px;
+    text-align: center;
+    font-size: 60px;
+    font-family:'Bodoni Moda';
+    color: black; background: linear-gradient(90deg, black, brown, black);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s infinite linear;
+    
+}
+
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}

@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>
+    Day. DREAM-Home
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/section2.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/section3.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,639;1,14..32,639&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,639;1,14..32,639&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
+    <div class="navbar">
+      <div class="left-menu">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('women') }}">Women</a>
+        <a href="{{ url_for('men') }}">Men</a>
+      </div>
+      <div class="logo">
+        Day. DREAM
+      </div>
+      <div class="right-menu">
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('cart') }}" id="navbarCart" onclick="openCart()">
+          <i class="fas fa-shopping-cart"></i> Cart <span id="cart-count"></span>
+      </a>
+      </div>
+    </div>
+    <h1 class="heading">Welcome to Day.DREAM!</h1>
+    <div class="container">
+        <div class="left-section">
+          <img alt="A woman sitting on a hammock in a room with a rustic background and vintage chairs" height="1000"
+            src="https://storage.googleapis.com/a1aa/image/aHF4o7fgiBR1Cy4omkjCHTtu0qb3f2Oi3rsThOEzrwBfNWunA.jpg" width="800"
+             />
+    
+        </div>
+        <div class="right-section">
+          <div class="content">
+            <h1>Comfy Chic Loungewear</h1>
+            <p>Effortless Elegance, Combining Comfort With Style</p>
+            <a href="{{ url_for('men') }}">Shop Collection</a>
+          </div>
+        </div>
+      </div>
+      <div class="background-section"></div>
+ <div class="product-grid1">
+    <!-- Product 1 -->
+    <div class="product-card1">
+      <img src="{{url_for('static', filename='images/g1.png')}}" height="20px">
+      <h3>25% off on Winterwear Collection</h3>
+      <a href="{{ url_for('women') }}">Shop Now</a>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card2">
+      <img src= "{{url_for('static', filename='images/g2.jpeg')}}" style="width: 70%;
+      height: auto;" alt="Product 2">
+      <h3>Shirts: Redefine your style</h3>
+      <a href="{{ url_for('men') }}">Shop Now</a>
+    </div>
+</div>
+<div class="container">
+    <div class="left" id="l">
+        <img src="https://storage.googleapis.com/a1aa/image/QBFWAvUgXBJjF97KpoL81t8n0Qa3XrNm2E9KWk0r9M4ZDdeJA.jpg" id="i" alt="A woman in an orange dress standing by a window with a brick wall background" width="1000" height="1000">
+    </div> 
+    <div class="right">
+        <!--<img src="https://storage.googleapis.com/a1aa/image/o2KBUPjS7BrOA5IBJBel65hRbaSEhMiypBWf5VAIhKCpN05TA.jpg" alt="Close-up of a woman in an orange dress" width="300" height="400"> -->
+        <div class="content">
+            <div class="tagline">Day. Dream • Loungewear • 2023 Lookbook</div>
+            <div class="title">At Home. In Style.</div>
+            <a href="{{ url_for('women') }}"><div class="view-more">View More</div></a>
+        </div>
+    </div>
+</div>
+<section class="product-display">
+  <h2>Where Heritage meets Modernity</h2>
+  <div class="product-grid" id="product-section">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='images/p1.jpeg') }}" alt="Product 1">
+  
+    <div class="product-info">
+      <P>Wrap Yourslef in Tradition.</P>
+    </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='images/p2.jpeg') }}" alt="Product 2">
+    <div class="product-info">
+      <p>Step Into Style,The Ethnic Way.</p>
+    </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='images/p3.jpeg') }}" alt="Product 3">
+    <div class="product-info">
+      <p>Little Stars ,Big Traditons.</p>
+    </div>
+  </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='images/p4.jpeg') }}" alt="Product 4">
+      <div class="product-info">
+      <p>Drape the Magic of India.</p>
+    </div>
+    </div>
+    
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='images/p5.jpeg') }}" alt="Product 5">
+    <div class="product-info">
+      <p>Celebrate Every Shade of Culture.</p>
+    </div>
+  </div>
+</section>
+<div class="footer">
+  <div class="footer-columns">
+    <ul class="footer-column">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <ul class="footer-column">
+      <li><a href="#">Lookbook</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul class="footer-column">
+      <li><a href="#">Store Policy</a></li>
+      <li><a href="#">Shipping & Returns</a></li>
+      <li><a href="#">FAQ</a></li>
+    </ul>
+    <ul class="footer-column">
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Pinterest</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    ©2035 by Day. DREAM. Powered and secured by <a href="#">Wix</a>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}" ></script>
+<script>
+ // Listen to the window's scroll event
+ window.addEventListener("scroll", function () {
+      const leftImage = document.querySelector(".container .left-section img");
+      const rightImage= document.querySelector(".right-section");
+      const products= document.querySelector(".product-display");
+      //const productgrid= document.querySelector(".product-grid1")
+      
+      
+      
+      // Multiply the scroll amount and apply a negative translation to move upward.
+      leftImage.style.transform = "translateY(" + window.scrollY * 0.25 + "px)";
+      rightImage.style.transform = "translateY("+ window.scrollY * 0.25 + "px)";
+      products.style.transform = "translateY(-"+ window.scrollY * 0.15 + "px)";
+      //productgrid.style.transform = "translateY(" + window.scrollY * 0.25 + "px)";
+      
+    });
+
+</script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,355 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Cart
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,639;1,14..32,639&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Poppins', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #4a4a4a;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: beige;
+   
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: #4a4a4a;
+    margin: 0 15px;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #4a4a4a;
+    color: #f8f5f0;
+    transform: scale(1.05);
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+
+  .navbar .right-menu {
+    display: flex;
+    align-items: center;
+  }
+.common{
+    display:flex;
+}
+ 
+        .cart-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #4a4a4a;
+            padding-bottom: 10px;
+        }
+        .cart-header h1 {
+            font-size: 24px;
+            font-weight: normal;
+        }
+        .cart-header .close-btn {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #4a4a4a;
+        }
+        .cart-item img {
+            width: 100px;
+            height: auto;
+        }
+        .cart-item-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .cart-item-details h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .cart-item-details p {
+            margin: 5px 0;
+        }
+        .cart-item-details .more-details {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .cart-item-details .more-details i {
+            margin-left: 5px;
+        }
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        .cart-item-quantity input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #4a4a4a;
+            margin: 0 5px;
+        }
+        .cart-item-price {
+            font-size: 18px;
+        }
+        .cart-item-remove {
+            cursor: pointer;
+        }
+        .cart-summary {
+            padding: 20px 0;
+            border-top: 1px solid #4a4a4a;
+        }
+        .cart-summary h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .cart-summary p {
+            margin: 5px 0;
+        }
+        .cart-summary .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #6b6b47;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        .cart-summary .view-cart-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4a4a4a;
+            text-align: center;
+            text-decoration: none;
+            color: #4a4a4a;
+        }
+        .cart-summary .secure-checkout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #4a4a4a;
+        }
+        .cart-summary .secure-checkout i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left-menu">
+          <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('women') }}">Women</a>
+            <a href="{{ url_for('men') }}">Men</a>
+        </div>
+        <div class="logo">
+          Day. DREAM
+        </div>
+        <div class="right-menu">
+          <a href="#">Log In</a>
+          <a href="{{ url_for('cart') }}" id="navbarCart" onclick="openCart()">
+            <i class="fas fa-shopping-cart"></i> Cart <span id="cart-count"></span>
+        </a>
+        </div>
+      </div>
+      <div class="common">
+        
+        
+        </div>
+      
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>
+                Cart Items
+            </h1>
+        </div>
+        <div id="cart-items-container">
+            <img alt="Product image of a pink dress" height="150" src="https://storage.googleapis.com/a1aa/image/lQKR6atvXhX4PeujWdV3BgXbIUKbtgSgDJ3TKR4ibds.jpg" width="100"/>
+            <div class="cart-item-details">
+                <h2>I'm a Product</h2>
+                <p class="item-price">Rs 100.00</p>
+                <p>Color: Pink</p>
+                <div class="more-details">
+                    <span>More Details</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <div class="cart-item-quantity">
+                <button onclick="updateQuantity(-1)">
+                    -
+                </button>
+                <input id="quantity" type="text" value="1" readonly/>
+                <button onclick="updateQuantity(1)">
+                    +
+                </button>
+            </div>
+            <div class="cart-item-price">
+                Rs<span id="item-total">100.00</span>
+            </div>
+            <div class="cart-item-remove" onclick="removeItem()">
+                <br>
+                <i class="fas fa-trash">
+                </i>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <h2>
+                Subtotal
+            </h2>
+            <p id="subtotal">
+                Rs.100.00
+            </p>
+            <p>
+                Taxes and shipping are calculated at checkout.
+            </p>
+            <a class="checkout-btn" href="#" onclick="redirectToCheckout()">Checkout</a>
+
+            <div class="secure-checkout">
+                <i class="fas fa-lock">
+                </i>
+                <span>
+                    Secure Checkout
+                </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", loadCart);
+
+        document.addEventListener("DOMContentLoaded", loadCart);
+
+function loadCart() {
+    fetch("/get_cart")
+    .then(response => response.json())
+    .then(data => {
+        console.log("🛒 Cart Data:", data);  
+
+        let cartItems = data.cart;
+        let cartContainer = document.getElementById("cart-items-container");
+        cartContainer.innerHTML = ""; 
+        let subtotal = 0;
+
+        if (cartItems.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            document.getElementById("subtotal").textContent = "₹0.00";
+            return;
+        }
+
+        cartItems.forEach((item, index) => {
+            console.log(`🔹 Rendering Item ${index + 1}:`, item); 
+
+            let price = parseFloat(item.price);  
+            if (isNaN(price)) price = 0;  
+
+            let itemTotal = price * item.quantity;
+            subtotal += itemTotal;
+
+            let cartItemHTML = `
+                <div class="cart-item">
+                    <img src="${item.image_url}" width="100" height="100">
+                    <div class="cart-item-details">
+                        <h2>${item.product_name}</h2>
+                        <p class="item-price">₹${price.toFixed(2)}</p>
+                        <div class="cart-item-quantity">
+                            <button onclick="updateCart('${item.sku}', -1)">-</button>
+                            <input type="text" id="quantity-${item.sku}" value="${item.quantity}" readonly />
+                            <button onclick="updateCart('${item.sku}', 1)">+</button>
+                        </div>
+                        <div class="cart-item-remove">
+                            <i class="fas fa-trash" onclick="removeFromCart('${item.sku}')"></i>
+                        </div>
+                    </div>
+                </div>
+            `;
+            cartContainer.innerHTML += cartItemHTML;
+        });
+
+        console.log(" Cart Rendered Successfully!");
+
+        document.getElementById("subtotal").textContent = `₹${subtotal.toFixed(2)}`;
+    })
+    .catch(error => console.error(" Error loading cart:", error));
+}
+
+function updateCart(sku, change) {
+        fetch("/update_cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sku: sku, change: change })
+        })
+        .then(response => response.json())
+        .then(() => loadCart())  
+        .catch(error => console.error(" Error updating cart:", error));
+    }
+
+    function removeFromCart(sku) {
+    
+    const itemElement = document.getElementById(`cart-item-${sku}`);
+    if (itemElement) {
+        itemElement.remove();
+    }
+
+    fetch("/remove_from_cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sku: sku })
+    })
+    .then(response => response.json())
+    .then(() => {
+        loadCart(); 
+    })
+    .catch(error => console.error(" Error removing item:", error));
+}
+function redirectToCheckout() {
+        fetch('/check_login')
+        .then(response => response.json())
+        .then(data => {
+            if (data.logged_in) {
+                window.location.href = "{{url_for('checkout')}}";
+            } else {
+                window.location.href = "{{url_for('login')}}";
+            }
+        })
+        .catch(error => console.error(" Error checking login status:", error));
+    }
+
+
+
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }} " ></script>
+</body>
+</html>

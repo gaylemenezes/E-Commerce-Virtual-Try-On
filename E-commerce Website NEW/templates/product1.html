@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day. DREAM-Women</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/product1.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/section3.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,639;1,14..32,639&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="left-menu">
+      <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('women') }}">Women</a>
+        <a href="{{ url_for('men') }}">Men</a>
+    </div>
+    <div class="logo">
+      Day. DREAM
+    </div>
+    <div class="right-menu">
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('cart') }}" id="navbarCart" onclick="openCart()">
+        <i class="fas fa-shopping-cart"></i> Cart <span id="cart-count"></span>
+    </a>
+    </div>
+  </div>
+  <div class="common">
+    
+    <div class="sidebar">
+      <h2>Browse by</h2>
+      <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('women') }}">Women</a>
+        <a href="{{ url_for('men') }}">Men</a>
+      
+      <div class="filter-section">
+        
+        <h3> Check out our Virutal Try On feature! </h3>
+        <div class="filter-item">
+          <div>
+          </div>
+        </div>
+        <div class="filter-item">
+        </div>
+        <div class="filter-item">
+        </div>
+      
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="image-section">
+        <img alt="Product image of a woman wearing a purple off-shoulder dress" height="800" src="t1.png" width="600"/>
+        <div class="thumbnail-section">
+         
+       </div>
+      </div>
+      <div class="details-section">
+        <h1>Loose-fit Sweatshirt</h1>
+        <p>SKU: 0001</p>
+        <p class="price">Rs.499</p>
+        <div class="color-options">
+        </div>
+        <button onclick="openVirtualTryOn()">
+          <i class="fas fa-camera"></i> Virtual Try On
+        </button>
+        <br>
+        <br>
+        <button onclick="addToCart(1)">
+          Add to Cart
+        </button>
+        <div class="accordion">
+          <div onclick="toggleAccordion(this)">
+            Product Info
+            <i class="fas fa-plus" style="display:block"></i>
+            <div class="accordion-content" style="display: block;">
+              <p>
+                Stay cozy and stylish with this soft, breathable sweatshirt. Featuring a relaxed fit, ribbed cuffs, and a classic neckline, it's perfect for everyday wear. Pair it effortlessly with jeans or leggings for a trendy, laid-back look!
+              </p>
+            </div>
+          </div>
+          <div onclick="toggleAccordion(this)">
+            Return & Refund policy.
+            <i class="fas fa-plus"></i>
+            <div class="accordion-content" style="display: none;">
+              <p>Products can be returned incase of defect, wrong product delivery or wrong size within 10 days from the day of delivery. Kindly ensure that the product is properly packed during the time of delivery.</p>
+            </div>
+          </div>
+          <div onclick="toggleAccordion(this)">
+            Shipping Info
+            <i class="fas fa-plus"></i>
+            <div class="accordion-content" style="display: none;">
+              <p>Shipping available to all locations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    function toggleAccordion(element) {
+            const content = element.querySelector('.accordion-content');
+            const icon = element.querySelector('i');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                content.style.display = 'block';
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+    
+    
+  function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      console.log("URL Params:", params.toString()); 
+
+      return {
+          name: params.get("name") || "Default Product",
+          sku: params.get("sku") || "0000",
+          price: params.get("price") || "0",
+          desc: params.get("desc") || "No description available.",
+          image: params.get("image") || "default.png",
+      };
+  }
+
+  function updateProductPage() {
+      
+      const product = getQueryParams();
+      console.log("Loaded Product Data:", product); 
+
+      
+      document.querySelector(".details-section h1").textContent = product.name;
+      document.querySelector(".details-section p:nth-of-type(1)").textContent = "SKU: " + product.sku;
+      document.querySelector(".price").textContent = "Rs." + product.price;
+      document.querySelector(".accordion-content p").textContent = product.desc;
+      
+      
+      document.querySelector(".image-section img").src = product.image;
+      document.querySelector(".thumbnail-section img").src = product.image; 
+
+      console.log("Updated Page with:", product); 
+  }
+
+  window.onload = updateProductPage;
+
+  function openVirtualTryOn() {
+      const params = new URLSearchParams(window.location.search);
+      const image = params.get("image") || "default.png"; 
+      window.open(`{{ url_for('virtualtryon') }}?image=${image}`, "_blank"); 
+  }
+
+   
+  </script>
+  <div class="footer">
+    <div class="footer-columns">
+      <ul class="footer-column">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+      <ul class="footer-column">
+        <li><a href="#">Lookbook</a></li>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="footer-column">
+        <li><a href="#">Store Policy</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+      <ul class="footer-column">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">  
+      ©2035 by Day. DREAM. Powered and secured by <a href="#">Wix</a>
+    </div>
+  </div>
+</body>
+</html>
