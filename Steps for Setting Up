@@ -1,0 +1,28 @@
+🛍️ E-Commerce Fashion Website with Virtual Try-On
+This is a responsive and user-friendly fashion e-commerce web application that allows users to browse traditional and modern outfits, add items to their cart, and experience a virtual try-on feature using the [Fashn API]. The project combines HTML, CSS, JavaScript, Flask, and MySQL to create a fully functional shopping experience.
+
+🔑 Key Features:
+ Browse Men’s and Women’s Collections
+ Add/Remove Products from Cart (Dynamic)
+ Product Detail Pages
+ Virtual Try-On Integration (Fashn API)
+ Data Persistence with MySQL
+ Responsive UI with modern design elements
+
+ Technologies Used
+Frontend: HTML, CSS, JavaScript
+Backend: Flask (Python)
+Database: MySQL
+API Integration: Fashn API for virtual try-on
+Session Management: Flask + JavaScript
+
+Steps for Setting up the project:
+1) Download the necessary platforms: VS code, python, mysql
+2) Make three different folders in your E-Commerce Folder namely: static, templates and models
+3) In your static folder make three different folders: js, css and images
+4) Save all the html files in the templates folder and all the other files in their respective folders(css fildes in css folder, images in images ,etc) and save databse.py in models folder.
+5) Whatever id and password you use for running MYSQL, make sure you update the change in databse.py file. or else use "root" as user and "123456" as password if you have newly installed MYSQL.
+6) To run the project naviagte to your e-commerce folder in cmd and type "python app2.py", press ctrl+click on the link that appears.
+7) For logging in use the following:
+username: admin@123
+password: password123
